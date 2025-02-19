@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <style>
+
+    body {
+      padding: 5;
+      margin: 5;
+      display: flex;
+      justify-content:  center;
+      align-items: center;
+      min-height: 100vh;
+      user-select: none;
+      background: lightskyblue;
+    }
+
+      font-family: sans-serif;
+
+    }
+
+   
+
+    h1 {
+
+      text-align: center right;
+
+    }
+
+   
+
+    .calculator {
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center ;
+
+      background:lightpink;
+
+      border-radius: 50px;
+
+      border-radius: 50px;
+
+      box-shadow: inset 0 15px 25px blue;
+
+      box-shadow: 0 15px 120px blue;
+
+      border: 2px solid lightblue;
+
+      border-radius: 50px;
+
+      padding: 10px;
+
+      width: 290px;
+
+   }
+
+   
+
+    .calculator > * {
+
+      margin: 10px 0;
+      
+    }
+
+   
+
+    .calculator > .screen {
+
+      width: 90%;
+
+      height: 55px;
+
+      font-size: 30px;
+
+      text-align: right;
+
+      border: 2px solid lightblue;
+
+      border-radius: 50px;
+
+      padding: 3px;
+
+      box-shadow: inset 0 15px 25px Pink;
+
+      border-radius: 20px;
+    
+
+    }
+
+   
+
+    .calculator > .buttons {
+
+      display: grid;
+
+      grid-template-columns: repeat(4, 1fr);
+
+      grid-column-gap: 10px;
+
+      grid-row-gap: 10px;
+
+      
+
+    }
+
+   
+
+    .calculator > .buttons > button {
+    
+      width: 100%;
+
+      height: 55px;
+
+      font-size: 30px;
+
+      background: lightpink;
+
+      border-radius: 50px;
+
+      border: 2px solid lightblue;
+
+      border-radius: 50px;
+
+      cursor: pointer;
+
+      box-shadow: 0 15px 25px hotpink;
+
+    }
+
+   
+
+    .calculator > .buttons > button:hover {
+
+      background: grey;
+
+    }
+
+   
+
+    .calculator > .buttons > button {
+
+      background: lightblue;
+
+      box-shadow: pink;
+
+      
+
+    }
+    
+    .calculator > .buttons > button.special {
+
+      background: lightpink;
+
+      box-shadow: hotpink;
+
+      
+
+    }
+
+
+   
+
+    .calculator > .buttons > button.special:hover {
+
+      background: grey;
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+   
+
+  <div class="calculator">
+
+     <h2><marquee direction="left"><b>kalkulator ana</b></marquee></h2>
+
+    <input type="double" class="screen" placeholder="0" />
+
+    <div class="buttons">
+
+      <button onclick="clearInput()" class="special">AC</button>
+
+      <button onclick="deleteLastChar()" class="special">Del</button>
+
+      <button onclick="addToInput('.')" class="special">.</button>
+
+      <button onclick="addToInput('*')" class="special">*</button>
+
+      <button onclick="addToInput(7)" >7</button>
+
+      <button onclick="addToInput(8)" >8</button>
+
+      <button onclick="addToInput(9)" >9</button>
+
+      <button onclick="addToInput('-')" class="special">-</button>
+
+      <button onclick="addToInput(4)" >4</button>
+
+      <button onclick="addToInput(5)" >5</button>
+
+      <button onclick="addToInput(6)" >6</button>
+
+      <button onclick="addToInput('+')" class="special">+</button>
+
+      <button onclick="addToInput(1)" >1</button>
+
+      <button onclick="addToInput(2)" >2</button>
+
+      <button onclick="addToInput(3)">3</button>
+
+      <button onclick="addToInput ('/')" class="special">/</button>
+
+      <button onclick="addToInput('0')" >0</button>
+
+      <button onclick="addToInput('00')">00</button>
+
+      <button onclick="addToInput('000')" >000</button>
+
+      <button onclick="calculate()" class="special">=</button>
+
+
+    
+
+    </div>
+
+  </div>
+
+  <script>
+
+   function addToInput(num) {
+
+      var input = document.querySelector('.calculator .screen');
+
+      input.value = input.value + num;
+
+    }
+
+   
+
+    function calculate() {
+
+      var input = document.querySelector('.calculator .screen');
+
+      var result = eval(input.value); // Evaluate the input string as an expression
+
+      result = parseInt(result); // Convert the result to an integer
+
+      input.value = result;
+
+    }
+
+   
+
+    function clearInput() {
+
+      var input = document.querySelector('.calculator .screen');
+
+      input.value = '';
+
+    }
+ 
+   
+
+    function deleteLastChar() {
+
+      var input = document.querySelector('.calculator .screen');
+
+      input.value = input.value.slice(0, -1);
+
+    }
+
+  </script>
+
+</body>
+
+</html>
